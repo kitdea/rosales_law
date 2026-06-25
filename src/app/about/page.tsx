@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -22,22 +23,36 @@ export default async function AboutPage() {
     <>
       <Header />
       <main className="pt-[140px]">
-        <section className="wrap pb-[80px]">
-          <Reveal>
-            <span className="eyebrow">The firm</span>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="mt-4 text-[clamp(2.2rem,5vw,4rem)] max-w-[20ch]">
-              The law, made understandable.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <p className="mt-6 text-[#C7C5BF] max-w-[58ch] text-lg">
-              Rosales Law Firm is a full-service Philippine practice serving
-              businesses and families. We believe good counsel starts with being
-              understood — so we explain the law plainly, move decisively, and
-              stay with you from first consult to resolution.
-            </p>
+        <section className="wrap pb-[80px] grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center">
+          <div>
+            <Reveal>
+              <span className="eyebrow">The firm</span>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h1 className="mt-4 text-[clamp(2.2rem,5vw,4rem)] max-w-[20ch]">
+                The law, made understandable.
+              </h1>
+            </Reveal>
+            <Reveal delay={0.16}>
+              <p className="mt-6 text-[#C7C5BF] max-w-[58ch] text-lg">
+                Rosales Law Firm is a full-service Philippine practice serving
+                businesses and families. We believe good counsel starts with
+                being understood — so we explain the law plainly, move
+                decisively, and stay with you from first consult to resolution.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={0.2}>
+            <div className="relative aspect-[3/4] w-full overflow-hidden border border-line">
+              <Image
+                src="/hero.jpg"
+                alt="The Rosales Law Firm library"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent" />
+            </div>
           </Reveal>
         </section>
 

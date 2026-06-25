@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import SegmentFork from "@/components/SegmentFork";
 import PracticeGrid from "@/components/PracticeGrid";
 import Approach from "@/components/Approach";
+import WhyClients from "@/components/WhyClients";
 import Matters from "@/components/Matters";
 import Insights from "@/components/Insights";
 import Credentials from "@/components/Credentials";
@@ -15,6 +16,7 @@ import {
   getMatters,
   getInsights,
   getPillars,
+  getReasons,
   getCredentials,
 } from "@/lib/content";
 
@@ -26,6 +28,7 @@ export default async function HomePage() {
     getInsights(),
   ]);
   const pillars = getPillars();
+  const reasons = getReasons();
   const credentials = getCredentials();
 
   return (
@@ -36,6 +39,7 @@ export default async function HomePage() {
         <SegmentFork />
         <PracticeGrid areas={areas} />
         <Approach pillars={pillars} />
+        <WhyClients reasons={reasons} />
         <Matters matters={matters} />
         <Insights insights={insights} />
         <Credentials items={credentials} />
