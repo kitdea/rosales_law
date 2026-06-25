@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink text-paper font-sans antialiased;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 {
+    @apply font-serif font-medium;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+
+}
+
+@layer components {
+  .wrap {
+    @apply max-w-wrap mx-auto px-7;
+  }
+
+  /* Each top-level section fills the viewport; content is centered and
+     reveals smoothly on scroll (no hard snapping, so the footer is reachable) */
+  .snap-section {
+    @apply relative flex flex-col justify-center;
+    min-height: 100svh;
+    padding-top: 104px;
+    padding-bottom: 88px;
+  }
+  @media (max-width: 767px) {
+    .snap-section {
+      min-height: auto;
+      padding-top: 96px;
+      padding-bottom: 72px;
+    }
+  }
+  .eyebrow {
+    @apply text-xs tracking-[0.22em] uppercase text-brass font-semibold inline-block;
+  }
+  .num {
+    @apply font-serif text-grey2 text-sm tracking-[0.05em];
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 font-sans font-medium text-[15px] px-[26px] py-[14px] rounded-[2px] cursor-pointer border border-transparent transition-all duration-300;
+  }
+  .btn-primary {
+    @apply bg-brass text-ink;
+  }
+  .btn-primary:hover {
+    @apply bg-brassHover -translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply border-line text-paper;
+  }
+  .btn-ghost:hover {
+    @apply border-brass tracking-[0.04em];
+  }
+  .btn .arrow {
+    @apply transition-transform duration-300;
+  }
+  .btn:hover .arrow {
+    @apply translate-x-1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
